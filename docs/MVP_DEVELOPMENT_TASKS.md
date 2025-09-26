@@ -6,9 +6,9 @@ PRD(v2.0) 및 TRD(v2.0) 기반의 MVP 개발을 위한 전체 태스크 목록�
 
 ### **Phase 1: 프로젝트 기반 설정 (Project & Backend Setup)**
 
-*   [ ] **Supabase 프로젝트 생성 및 초기 설정**
-    *   [ ] Supabase 신규 프로젝트 생성
-    *   [ ] API URL 및 `anon` 키 등 환경 변수 설정 (.env.local 파일)
+*   [x] **Supabase 프로젝트 생성 및 초기 설정**
+    *   [x] Supabase 신규 프로젝트 생성
+    *   [x] API URL 및 `anon` 키 등 환경 변수 설정 (.env 파일에 설정 완료)
 *   [x] **데이터베이스 스키마 정의 (TRD 3.0)**
     *   [x] `profiles` 테이블 생성 (id, created_at, name, role, is_verified) - `auth.users`와 연결
     *   [x] `posts` 테이블 생성 (id, created_at, title, description, image_url, user_id)

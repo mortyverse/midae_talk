@@ -6,12 +6,12 @@
         "@playwright/mcp@latest"
       ]
     },
-    "context7": {
-      "url": "https://mcp.context7.com/mcp",
-      "headers": {
-        "CONTEXT7_API_KEY": "ctx7sk-0c1486b4-8ca1-4913-b448-f0dfea61f698"
-      }
-    },
+    // "context7": {
+    //   "url": "https://mcp.context7.com/mcp",
+    //   "headers": {
+    //     "CONTEXT7_API_KEY": "ctx7sk-0c1486b4-8ca1-4913-b448-f0dfea61f698"
+    //   }
+    // },
     "supabase": {
       "command": "cmd",
       "args": [
@@ -19,11 +19,10 @@
         "npx",
         "-y",
         "@supabase/mcp-server-supabase",
-        "--read-only",
-        "--project-ref=isnwqewyuzctvirkrwma"
+        "--project-ref=vkarzoelebwnkiwvdcep"
       ],
       "env": {
-        "SUPABASE_ACCESS_TOKEN": "sbp_83472ef0d6be49f198271f3ae5c20f30eb6ccfbb"
+        "SUPABASE_ACCESS_TOKEN": "sbp_4c425e5ece7ee3504b8bf19cb640ebaf594cf703"
       }
     },
     "tosspayments-integration-guide": {
