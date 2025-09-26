@@ -3,8 +3,12 @@
 import { createClient } from '@/app/utils/supabase/server'
 import { redirect } from 'next/navigation'
 
-export async function uploadArtwork(formData: FormData) {
-  const supabase = createClient()
+export interface FormState {
+  error: string | null
+}
+
+export async function uploadArtwork(previousState: FormState, formData: FormData): Promise<FormState> {
+  const supabase = await createClient()
 
   const { data: { user } } = await supabase.auth.getUser()
   if (!user) {
@@ -20,8 +24,8 @@ export async function uploadArtwork(formData: FormData) {
     return { error: '이미지 파일을 선택해주세요.' }
   }
 
-  // Create a unique file path
-  const filePath = `${user.id}/${Date.now()}-${artworkFile.name}`
+  // Create a unique file path by encoding the file name to handle non-ASCII characters
+  const filePath = `${user.id}/${Date.now()}-${encodeURIComponent(artworkFile.name)}`
 
   // 1. Upload image to storage
   const { error: uploadError } = await supabase.storage
