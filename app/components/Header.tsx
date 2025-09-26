@@ -6,6 +6,16 @@ export default async function Header() {
   const supabase = createClient()
   const { data: { user } } = await supabase.auth.getUser()
 
+  let profile = null;
+  if (user) {
+    const { data } = await supabase
+      .from('profiles')
+      .select('role')
+      .eq('id', user.id)
+      .single()
+    profile = data
+  }
+
   return (
     <header className="bg-white shadow-md">
       <nav className="container mx-auto px-6 py-3 flex justify-between items-center">
@@ -15,6 +25,11 @@ export default async function Header() {
         <div>
           {user ? (
             <div className="flex items-center space-x-4">
+              {profile?.role === '학생' && (
+                <Link href="/upload" className="px-4 py-2 font-medium text-white bg-green-600 rounded-md hover:bg-green-700">
+                  작품 업로드
+                </Link>
+              )}
               <span className="text-gray-700">안녕하세요, {user.email} 님</span>
               <form action={logout}>
                 <button className="px-4 py-2 font-medium text-white bg-indigo-600 rounded-md hover:bg-indigo-700">
