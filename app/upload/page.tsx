@@ -3,7 +3,7 @@ import { redirect } from 'next/navigation'
 import UploadForm from './UploadForm' // Client component to be created
 
 export default async function UploadPage() {
-  const supabase = createClient()
+  const supabase = await createClient()
 
   const { data: { user } } = await supabase.auth.getUser()
 

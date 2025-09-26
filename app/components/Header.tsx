@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { logout } from '@/app/auth/actions'
 
 export default async function Header() {
-  const supabase = createClient()
+  const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()
 
   let profile = null;

@@ -1,9 +1,10 @@
 'use client'
 
-import { useFormState, useFormStatus } from 'react-dom'
-import { uploadArtwork } from './actions'
+import { useActionState } from 'react'
+import { useFormStatus } from 'react-dom'
+import { uploadArtwork, FormState } from './actions'
 
-const initialState = {
+const initialState: FormState = {
   error: null,
 }
 
@@ -23,7 +24,7 @@ function SubmitButton() {
 }
 
 export default function UploadForm() {
-  const [state, formAction] = useFormState(uploadArtwork, initialState)
+  const [state, formAction] = useActionState(uploadArtwork, initialState)
 
   return (
     <form action={formAction} className="space-y-6 bg-white p-8 rounded-lg shadow-md">
